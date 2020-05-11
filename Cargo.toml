@@ -1,0 +1,25 @@
+[package]
+name = "rust-uidep"
+version = "0.1.0"
+authors = ["Gizmo Head <benjamin.potzmann@outlook.com>"]
+edition = "2018"
+default-run = "proxyservice"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "0.2", features = ["full"] }
+warp = "0.2"
+hyper = "0.13"
+futures = "0.3"
+reqwest = { version = "0.10", features = ["json"] }
+bytes = "0.5"
+hyper-reverse-proxy = { git = "https://github.com/felipenoris/hyper-reverse-proxy.git" }
+
+[[bin]]
+path = "src/bin/hyper_proxyservice.rs"
+name = "proxyservice"
+
+[[bin]]
+path = "src/bin/warp_simpleservice.rs"
+name = "simpleservice"
